@@ -20,7 +20,15 @@ h1 {
     font-size: 40px;
 }
 
+/*
+    Container area
+*/
 .container-faq {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    width: 70%;
     margin: 0;
     position: absolute;
     top: 50%;
@@ -29,14 +37,15 @@ h1 {
     transform: translate(-50%, -50%);
     border-radius: 20px;
     background: white;
-    min-width: 1000px;
-    min-height: 550px;
     box-shadow: 1px 10px 30px #333;
 }
 
+/*
+    Illustration area
+*/
 .illustration-part {
-    display: inline-block;
-    width: 49%;
+    grid-column: 1 / 2;
+    grid-row: 1;
 }
 
 .background-illustration {
@@ -62,12 +71,16 @@ h1 {
     top: 50%;
     -ms-transform: translate(-65%, -20%);
     transform: translate(-65%, -20%);
-    animation: up-and-down 1.5s alternate-reverse infinite ease-in-out
+    animation: up-and-down-1200 1.5s alternate-reverse infinite ease-in-out
 }
 
+
+/*
+    Questions area
+*/
 .questions-part {
-    display: inline-block;
-    width: 50%;
+    grid-column: 2 / 2;
+    grid-row: 1;
     padding: 60px 10px;
 }
 
@@ -92,6 +105,7 @@ h1 {
     margin-left: 10px;
     padding: 15px 5px;
     font-size: 15px;
+    cursor: pointer;
 }
 
 .question img {
@@ -108,12 +122,80 @@ h1 {
 }
 
 .answer p {
-    font-size: 12px;
+    font-size: 15px;
     padding-bottom: 10px;
 }
 
-@keyframes up-and-down {
+.open {
+    height: auto;
+    opacity: 1;
+    padding: '20px 15px'
+}
+
+.turnArrow {
+    transform: rotate(180deg);
+    transition: transform 200ms ease-in-out;
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+    .container-faq {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .illustration-part {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .questions-area {
+        margin: auto;
+    }
+
+    .questions-part {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .questions-part h1{
+        text-align: center;
+    }
+
+    .background-illustration {
+        top: 0;
+        transform: translate(70%, -50%);
+        -ms-transform: translate(70%, -50%);
+        width: 40%;
+    }
+    
+    .woman-illustration {
+        top: 0;
+        -ms-transform: translate(70%, -50%);
+        transform: translate(70%, -50%);
+        width: 40%;
+    }
+    
+    .box-illustration {
+        top: 0;
+        -ms-transform: translate(170%, -20%);
+        transform: translate(170%, -60%);
+        width: 15%;
+        animation: up-and-down-900 1.5s alternate-reverse infinite ease-in-out
+    }
+}
+
+/*
+    Animation function
+*/
+@keyframes up-and-down-1200 {
     100% {
       top: 25rem;
+    }
+}
+
+@keyframes up-and-down-900 {
+    100% {
+      top: 5rem;
     }
 }
