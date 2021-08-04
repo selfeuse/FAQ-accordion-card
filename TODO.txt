@@ -1,5 +1,0 @@
-Technique:
-Pouvoir fermer question en cliquant sur la question
-
-Responsive:
-Mettre les deux sections up et down quand l'écran devient trop petit
